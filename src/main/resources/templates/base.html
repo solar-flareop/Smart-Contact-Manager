@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html
+  class="light"
   lang="en"
-  th:fragement="parent(content,title,script)"
+  th:fragment="parent(content,title,script)"
   xmlns:th="http://www.thymeleaf.org"
 >
   <head>
@@ -11,12 +12,34 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <link rel="stylesheet" data-th-href="@{'/css/output.css'}" />
+
+    <!-- Common Title -->
     <title data-th-replace="${title}">SCM</title>
   </head>
-  <body>
-    <section data-th-replace="${content}"></section>
+
+  <body class="dark:bg-gray-900 dark:text-white">
+    <!-- Common Header -->
+    <div data-th-replace="~{navbar::navbar}"></div>
+
+    <!-- Common Content -->
+    <div class="p-4">
+      <section data-th-replace="${content}"></section>
+    </div>
+
+    <!-- Common Footer -->
+    <footer class="p-4">Made in India - By Solarflare</footer>
+
+    <!-- Common Scripts -->
     <th:block data-th-replace="${script}"></th:block>
+    <script data-th-src="@{/js/script.js}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   </body>
 </html>
