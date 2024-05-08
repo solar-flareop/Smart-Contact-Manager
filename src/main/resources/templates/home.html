@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+<html
+  lang="en"
+  th:replace="~{base::parent(~{::#content},~{::title},~{::script})}"
+>
+  <head>
+    <title>Home</title>
+  </head>
+  <body>
+    <div id="content">
+      <h1>Welcome to Home page</h1>
+      <div>
+        <h2>Username : <span th:text="${name}"></span></h2>
+        <p>Location : <span th:text="${address}"></span></p>
+        <p>GitHub Repo : <a data-th-href="${github}">Click here to open</a></p>
+        <p>This is the rough data for home page...</p>
+      </div>
+    </div>
+    <script>
+      console.log("Home page script");
+    </script>
+  </body>
 </html>
